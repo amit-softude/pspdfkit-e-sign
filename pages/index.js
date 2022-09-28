@@ -13,15 +13,11 @@ export default function App() {
       if (PSPDFKit) {
         PSPDFKit.unload(container);
       }
-//       let docUrl = "https://vslfileupload.s3.amazonaws.com/usercontent/626f6f85520ef2c9abc87ce1/images/document.pdf";
-      // let docBlob = fetch(docUrl).then(e => e.blob());
-      // let documentBlobObjectUrl = URL.createObjectURL(docBlob);
       let docUrl = "https://amit-softude.github.io/dummy.pdf";
       await PSPDFKit.load({
         container,
         document: docUrl,
-        // document: "/document.pdf",
-        // baseUrl: `${window.location.protocol}//${window.location.host}/`,
+        baseUrl: `${window.location.protocol}//${window.location.host}/`,
       });
     })();
 
