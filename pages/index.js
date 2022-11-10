@@ -30,6 +30,22 @@ export default function App() {
         container,
         document: pdfUrl,
         baseUrl: `${window.location.protocol}//${window.location.host}/`,
+      }).then(instance => {
+        let items = instance.toolbarItems;
+        console.log('PSPDFKit instance', instance)
+        let filteredItems = items.filter(item => {
+          if(item.type === 'signature'){
+            return item;
+          }          
+          if(item.type === 'export-pdf'){
+            return item;
+          }          
+          if(item.type === 'search'){
+            return item;
+          }
+        } )
+        console.log('filteredItems', filteredItems);
+        instance.setToolbarItems(filteredItems);
       });
     })();
 
